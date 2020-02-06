@@ -1,6 +1,6 @@
 # Python script to analyse words in a text
 
-# Insert text here
+# Load text from file
 with open('text.txt', 'r') as f:
     text = f.read()
 
