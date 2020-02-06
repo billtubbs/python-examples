@@ -5,7 +5,7 @@ with open('text.txt', 'r') as f:
     text = f.read()
 
 # Extract words
-words = [word.strip(",.;!?-–'") for word in text.split()]
+words = [word.strip(",.;!?-–'").lower() for word in text.split()]
 print("Words:", len(words))
 
 # Calculate word lengths
