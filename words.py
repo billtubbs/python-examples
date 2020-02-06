@@ -1,0 +1,16 @@
+text = """Jurisprudence and international agreements have motivated increased recognition of Indigenous Peoples’ rights to lands and waters in Canada and around the world. Consequently, non-Indigenous governments are shifting from top-down approaches to collaborative natural resource governance involving Indigenous communities. Trust is widely recognized as critical to successful collaborative natural resource governance; however, a legacy of marginalization of Indigenous Peoples under federal and provincial laws and policies has created a challenging environment for building trust. Insights into how trust can be created have the potential to improve governance processes and outcomes. The trust literature offers insights regarding how trust is created; however, existing theoretical frameworks and empirical studies are often limited by disciplinary boundaries and few studies focus on collaborations involving Indigenous communities. This research took a multidisciplinary approach to developing and empirically testing a theory of trust in this context using a two-phased, mixed-methods approach. First, a multidimensional theoretical framework for trust was developed based on the literature and case studies of collaborations on Haida Gwaii, an archipelago located off the coast of British Columbia, Canada. Qualitative data were collected using a document review and 32 semi-structured, in-depth interviews with representatives of Indigenous, federal and provincial governments who were involved in three collaborations: the Archipelago Management Board, the Haida Gwaii Management Council and Solutions Table and the Marine Planning Partnership for the North Coast Haida Gwaii Sub-Regional Technical Team. Results showed that trust in this context is shaped by individual, interpersonal and institutional influences. Next, the theoretical framework was tested using a survey of 51 representatives of Indigenous, federal, provincial and territorial governments who are involved collaborative natural resource governance across Canada. Results revealed statistically significant relationships between interpersonal and institutional influences and behavioural trust; however, only experiences of discrimination predicted decreased behavioural trust across both multivariate statistical models. These results show that behavioural trust is linked to interpersonal and institutional influences and that people who have experienced discrimination tend to be less trusting toward collaborators. This suggests that lack of trust will remain a barrier to successful collaborative natural resource governance until discrimination against Indigenous Peoples in Canada is addressed."""
+
+words = [word.strip(",.;!?-–'") for word in text.split()]
+print("Words:", len(words))
+word_lengths = [len(word) for word in words]
+print("Avg. word length: {:.1f} chars".format(
+      sum(word_lengths) / len(word_lengths)))
+longest = word_lengths.index(max(word_lengths))
+longest_word = words[longest]
+print("Longest word: {:s} ({:d})".format(longest_word, len(longest_word)))
+word_tally = {}
+for word in words:
+    word_tally[word] = word_tally.get(word, 0) + 1
+print("Top-10 words longer than 3 letters:")
+long_word_tally = {word: n for word, n in word_tally.items() if len(word) > 3}
+print(sorted(long_word_tally.items(), key=lambda x: x[1], reverse=True)[:10])
